@@ -1,0 +1,60 @@
+
+
+INP
+STA A
+INP
+STA B
+
+
+LDA A
+AND B
+STA RAND
+OUT
+
+
+LDA A
+CMA
+STA NB
+LDA A
+CMA
+STA NA
+AND NB
+CMA
+STA ROR
+OUT
+
+
+LDA NA
+OUT
+LDA NB
+OUT
+
+
+LDA RAND
+CMA 
+STA RAND
+AND ROR
+STA RXOR
+OUT
+
+
+LDA ROR
+CMA
+STA RNOR
+OUT
+
+
+LDA RNAND
+OUT
+HLT
+
+A: .data 1 0
+B: .data 1 0
+NA: .data 1 0 ; A'
+NA: .data 1 0 ; B'
+RAND: .data 1 0 ; A and B
+ROR: .data 1 0 ; A or B
+RXOR: .data 1 0 ; A XOR B
+RNOR: .data 1 0 ; A NOR B
+RNAND: .data 1 0 ; A NAND B
+
